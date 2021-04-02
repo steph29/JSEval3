@@ -1,6 +1,5 @@
 // Variables
 var newGameButton = document.getElementById("newGame");
-var round = document.getElementsByClassName("round");
 var global1 = document.getElementById("global1");
 var global2 = document.getElementById("global2");
 var round1 = document.getElementById("round1");
@@ -10,23 +9,33 @@ var save = document.getElementById("save");
 var reload = document.getElementById("reload");
 var player1 = true;
 var player2 = false;
+var cliked = false;
+var scoreGlobal = 0;
 
 // Game
 newGameButton.addEventListener("click", function () {
   newGame();
 });
 
+save.addEventListener("click", () => {
+  cliked = true;
+  hold();
+  if (global1.innerText >= 100) {
+    alert("Vous avez gagné !");
+  }
+});
+
 reload.addEventListener("click", () => {
-  roundDicee();
+  scoreGlobal = roundDicee();
 });
 
 // Functions
 function newGame() {
   console.log("remise des scores à 0");
-  global1.innerText = "0";
-  global2.innerText = "0";
-  round1.innerText = "0";
-  round2.innerText = "0";
+  global1.innerText = 0;
+  global2.innerText = 0;
+  round1.innerText = 0;
+  round2.innerText = 0;
 }
 
 function changeBackground(url) {
@@ -89,7 +98,7 @@ function roundDicee() {
       round2.innerText = 0;
     }
   }
-  roundScore(res);
+  return roundScore(res);
 }
 
 function roundScore(result) {
@@ -100,17 +109,38 @@ function roundScore(result) {
     } else {
       var number1 = Number(round1.innerText);
       round1.innerText = number1 + result;
+      score = round1.innerText;
     }
-    score = round1.innerText;
   } else {
     if (result == 1) {
       round2.innerText = 0;
     } else {
       var number2 = Number(round2.innerText);
       round2.innerText = number2 + result;
+      score = round2.innerText;
     }
-
-    score = round2.innerText;
   }
   return score;
+}
+
+function hold() {
+  var result = 0;
+  if (cliked) {
+    if (player1) {
+      var num1 = Number(round1.innerText);
+      var num2 = Number(global1.innerText);
+      result = num1 + num2;
+      global1.innerText = result;
+      player1 = false;
+      player2 = true;
+    } else {
+      var num1 = Number(round2.innerText);
+      var num2 = Number(global2.innerText);
+      result = num1 + num2;
+      global2.innerText = result;
+      player1 = true;
+      player2 = false;
+    }
+    cliked = false;
+  }
 }
