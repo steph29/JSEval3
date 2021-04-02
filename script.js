@@ -17,42 +17,50 @@ var newGameBool = true;
 newGameButton.addEventListener("click", function () {
   newGame();
   alert();
+  deleteWin();
 });
 
 save.addEventListener("click", () => {
   cliked = true;
   hold();
   if (global1.innerText >= 100) {
-    win();
+    win("Player1 ");
+    deleteAlert();
   } else if (global2.innerText >= 100) {
-    win();
+    win("Player2 ");
+    deleteAlert();
   }
 });
 
 reload.addEventListener("click", () => {
-  document.getElementById("alert").display = "none";
   scoreGlobal = roundDicee();
 });
 
 // Functions
 function alert() {
+  var alertDiv = document.getElementById("alert");
+  alertDiv.style.display = "block";
+}
+
+function deleteAlert() {
+  var alertDiv = document.getElementById("alert");
+  alertDiv.style.display = "none";
+}
+
+function win(player) {
   var alertDiv = document.createElement("div");
-  alertDiv.classList.add("alert");
-  var content = document.createTextNode("Et c'est reparti ! ");
+  alertDiv.setAttribute("id", "win");
+  var content = document.createTextNode(
+    `Bravo ${player}! Vous avez remporté le match ! `
+  );
   alertDiv.appendChild(content);
-  var currentDiv = document.getElementById("alert");
+  var currentDiv = document.getElementById("rules");
   document.body.insertBefore(alertDiv, currentDiv);
 }
 
-function win() {
-  var alertDiv = document.createElement("div");
-  alertDiv.classList.add("win");
-  var content = document.createTextNode(
-    "Bravo ! Vous avez remporté le match ! "
-  );
-  alertDiv.appendChild(content);
-  var currentDiv = document.getElementById("alert");
-  document.body.insertBefore(alertDiv, currentDiv);
+function deleteWin() {
+  var alertDiv = document.getElementById("win");
+  alertDiv.style.display = "none";
 }
 
 function newGame() {
