@@ -13,15 +13,6 @@
   margin-bottom: 4rem;
 }
 
-:root #alert {
-  -webkit-transform: translateY(30px);
-          transform: translateY(30px);
-  -webkit-transition: -webkit-transform 1s ease-in-out;
-  transition: -webkit-transform 1s ease-in-out;
-  transition: transform 1s ease-in-out;
-  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
-}
-
 :root .rules {
   font-size: 1rem;
   text-align: center;
