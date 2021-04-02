@@ -1,3 +1,110 @@
-h1 {
-  color: burlywood;
+:root body {
+  --ion-font-family: "Lato", sans-serif;
+  font-weight: 100;
+  margin-top: 10rem;
 }
+
+:root ion-card {
+  margin: auto auto;
+  height: 500px;
+  max-width: 900px;
+}
+
+:root h1 {
+  color: #727272;
+  font-size: 0.9rem;
+}
+
+:root ion-fab-button {
+  --background-color: none;
+  --box-shadow: none;
+  border-radius: 50%;
+}
+
+:root ion-icon {
+  color: rgba(255, 0, 0, 0.6);
+}
+
+:root .playIcon {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(255, 0, 0, 0.6);
+}
+
+:root .downloadIcon {
+  position: absolute;
+  bottom: 5.8rem;
+  background: none;
+}
+
+:root .syncIcon {
+  position: absolute;
+  bottom: 9rem;
+}
+
+:root #dicee {
+  background: url("/images/six.png") no-repeat center;
+  --border-radius: none;
+  width: 100px;
+  height: 100px;
+}
+
+:root .round {
+  font-size: 2rem;
+}
+
+:root ion-card-content {
+  height: 100%;
+  padding: 0;
+}
+
+:root ion-grid {
+  height: 100%;
+  padding: 0;
+}
+
+:root ion-row {
+  height: 100%;
+}
+
+:root ion-button {
+  height: 75px;
+  background-color: rgba(255, 0, 0, 0.6);
+  position: absolute;
+  bottom: 20%;
+  left: 35%;
+}
+
+:root ion-button p {
+  color: #727272;
+}
+
+:root ion-button h3 {
+  color: #b9b9b9;
+}
+
+:root .global {
+  color: rgba(255, 0, 0, 0.6);
+  font-size: 3rem;
+}
+
+:root .player {
+  padding-top: 4rem;
+}
+
+:root .player h2 {
+  font-size: 2.5rem;
+}
+
+:root .player1 {
+  background-color: #f6f6f6;
+}
+
+:root .player1 h2 {
+  color: #727272;
+}
+
+:root .player2 h2 {
+  color: #b9b9b9;
+}
+/*# sourceMappingURL=style.css.map */

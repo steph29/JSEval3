@@ -1,0 +1,96 @@
+:root {
+  $darkGray: rgb(114, 114, 114);
+  $lightGray: rgb(185, 185, 185);
+  $LightRed: rgba(255, 0, 0, 0.6);
+  body {
+    --ion-font-family: "Lato", sans-serif;
+    font-weight: 100;
+    margin-top: 10rem;
+  }
+  ion-card {
+    margin: auto auto;
+    height: 500px;
+    max-width: 900px;
+  }
+  h1 {
+    color: $darkGray;
+    font-size: 0.9rem;
+  }
+  ion-fab-button {
+    --background-color: none;
+    --box-shadow: none;
+    border-radius: 50%;
+  }
+  ion-icon {
+    color: $LightRed;
+  }
+  .playIcon {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $LightRed;
+  }
+  .downloadIcon {
+    position: absolute;
+    bottom: 5.8rem;
+    background: none;
+  }
+  .syncIcon {
+    position: absolute;
+    bottom: 9rem;
+  }
+
+  #dicee {
+    background: url("/images/six.png") no-repeat center;
+    --border-radius: none;
+    width: 100px;
+    height: 100px;
+  }
+  .round {
+    font-size: 2rem;
+  }
+  ion-card-content {
+    height: 100%;
+    padding: 0;
+  }
+  ion-grid {
+    height: 100%;
+    padding: 0;
+  }
+  ion-row {
+    height: 100%;
+  }
+  ion-button {
+    height: 75px;
+    background-color: $LightRed;
+    position: absolute;
+    bottom: 20%;
+    left: 35%;
+    p {
+      color: $darkGray;
+    }
+    h3 {
+      color: $lightGray;
+    }
+  }
+  .global {
+    color: $LightRed;
+    font-size: 3rem;
+  }
+  .player {
+    padding-top: 4rem;
+    h2 {
+      font-size: 2.5rem;
+    }
+  }
+  .player1 {
+    background-color: rgb(246, 246, 246);
+    h2 {
+      color: $darkGray;
+    }
+  }
+  .player2 {
+    h2 {
+      color: $lightGray;
+    }
+  }
+}
