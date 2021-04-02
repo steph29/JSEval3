@@ -68,13 +68,26 @@ function randomDicee() {
 
 function roundDicee() {
   var res = randomDicee();
-  if (res != 1) {
-    player1 = true;
-    player2 = false;
+  if (player1 == true) {
+    if (res != 1) {
+      player1 = true;
+      player2 = false;
+      round2.innerText = 0;
+    } else {
+      player1 = false;
+      player2 = true;
+      round1.innerText = 0;
+    }
   } else {
-    round2.innerText = res;
-    player1 = false;
-    player2 = true;
+    if (res != 1) {
+      player1 = false;
+      player2 = true;
+      round1.innerText = 0;
+    } else {
+      player1 = true;
+      player2 = false;
+      round2.innerText = 0;
+    }
   }
   roundScore(res);
 }
@@ -82,12 +95,21 @@ function roundDicee() {
 function roundScore(result) {
   var score = 0;
   if (player1) {
-    var number1 = Number(round1.innerText);
-    round1.innerText = number1 + result;
+    if (result == 1) {
+      round1.innerText = 0;
+    } else {
+      var number1 = Number(round1.innerText);
+      round1.innerText = number1 + result;
+    }
     score = round1.innerText;
   } else {
-    var number2 = Number(global2.innerText);
-    global2.innerText = number2 + result;
+    if (result == 1) {
+      round2.innerText = 0;
+    } else {
+      var number2 = Number(round2.innerText);
+      round2.innerText = number2 + result;
+    }
+
     score = round2.innerText;
   }
   return score;
