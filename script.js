@@ -11,27 +11,51 @@ var player1 = true;
 var player2 = false;
 var cliked = false;
 var scoreGlobal = 0;
+var newGameBool = true;
 
 // Game
 newGameButton.addEventListener("click", function () {
   newGame();
+  alert();
 });
 
 save.addEventListener("click", () => {
   cliked = true;
   hold();
   if (global1.innerText >= 100) {
-    alert("Vous avez gagné !");
+    win();
+  } else if (global2.innerText >= 100) {
+    win();
   }
 });
 
 reload.addEventListener("click", () => {
+  document.getElementById("alert").display = "none";
   scoreGlobal = roundDicee();
 });
 
 // Functions
+function alert() {
+  var alertDiv = document.createElement("div");
+  alertDiv.classList.add("alert");
+  var content = document.createTextNode("Et c'est reparti ! ");
+  alertDiv.appendChild(content);
+  var currentDiv = document.getElementById("alert");
+  document.body.insertBefore(alertDiv, currentDiv);
+}
+
+function win() {
+  var alertDiv = document.createElement("div");
+  alertDiv.classList.add("win");
+  var content = document.createTextNode(
+    "Bravo ! Vous avez remporté le match ! "
+  );
+  alertDiv.appendChild(content);
+  var currentDiv = document.getElementById("alert");
+  document.body.insertBefore(alertDiv, currentDiv);
+}
+
 function newGame() {
-  console.log("remise des scores à 0");
   global1.innerText = 0;
   global2.innerText = 0;
   round1.innerText = 0;
@@ -44,30 +68,24 @@ function changeBackground(url) {
 
 function randomDicee() {
   var diceeResult = Math.floor(Math.random() * (6 - 1 + 1)) + 1;
-  console.log(diceeResult);
   switch (diceeResult) {
     case 1:
       changeBackground("/images/un.png");
       break;
     case 2:
       changeBackground("/images/deux.png");
-
       break;
     case 3:
       changeBackground("/images/trois.png");
-
       break;
     case 4:
       changeBackground("/images/quatre.png");
-
       break;
     case 5:
       changeBackground("/images/cinq.png");
-
       break;
     case 6:
       changeBackground("/images/six.png");
-
       break;
     default:
       break;

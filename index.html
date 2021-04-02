@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="md">
+<html lang="fr" >
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,31 +18,58 @@
     <title>Eval 3</title>
   </head>
   <body>
+      <div id="alert"></div>
+      <div class="rules">Le jeu comprend 2 joueurs sur un seul et même écran.<br/>
+Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL).<br/>
+À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le
+résultat d’un lancer est ajouté au ROUND.<br/><br/>
+Lors de son tour, le joueur peut décider à tout moment de:<br/>
+- Cliquer sur l’option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. Ce sera alors le
+tour de l’autre joueur.<br/>
+- Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.<br/>
+Le premier joueur qui atteint les 100 points sur global gagne le jeu</div>
     <ion-card>
       <ion-card-content>
-         
-        <ion-fab vertical="top" horizontal="center" slot="fixed">
-          <ion-fab-button color="none" class="playIcon" id="newGame">
-            <ion-icon name="add"></ion-icon>
-          </ion-fab-button>
-           <h3>NEW GAME</h3>
+        
+        <ion-fab  vertical="top" horizontal="center" > 
+                  <ion-fab-button color="none" class=" playIcon" id="newGame">
+                    <ion-icon name="add"></ion-icon>
+                  </ion-fab-button><h3>NEW GAME</h3>
+                </ion-fab>
+        
+           
         </ion-fab>
+      <ion-fab vertical="center" horizontal="center" >
+          <div id="dicee">
+          </div>
+        </ion-fab>
+       
+        <ion-fab  vertical="bottom" horizontal="center" > 
+                  <ion-fab-button color="none" class=" downloadIcon" id="save"><h3>HOLD</h3>
+                    <ion-icon name="download-outline"></ion-icon>
+                  </ion-fab-button>
+                </ion-fab>  
+
+
+        <ion-fab  vertical="bottom" horizontal="center" > 
+          <ion-fab-button color="none" class=" syncIcon" id="reload"><h3>ROLL DICEE</h3>
+            <ion-icon name="sync-outline"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>  
       <ion-card-content>
-        <ion-fab vertical="center" horizontal="center" >
-          <ion-fab-button color="none"   id="dicee">
-            <ion-icon name="de"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>
-        <ion-grid fixed>
+        
+        
+
+
+
+        <ion-grid >
           <ion-row>
             <ion-col size="6" class="player player1">
-              <h2 class="ion-text-center">Player 1</h2>
+              <h2 class="ion-text-center">Player 1</h2> 
               <h3 class="global ion-text-center" id="global1">0</h3>
               <ion-button
-
                 expand="block"
                 fill="clear"
-                shape="round"
               >
                 <ion-grid>
                   <i-row>
@@ -53,12 +80,11 @@
               </ion-button>
             </ion-col>
             <ion-col size="6" class="player player2">
-              <h2 class="ion-text-center">Player 2</h2>
+              <h2 class="ion-text-center ">Player 2</h2>
               <h3 class="global ion-text-center" id="global2">0</h3>
               <ion-button
                 expand="block"
                 fill="clear"
-                shape="round"
               >
                 <ion-grid>
                   <i-row>
@@ -69,18 +95,9 @@
               </ion-button>
             </ion-col>
           </ion-row>
-          <ion-fab  horizontal="center" >
-          <ion-fab-button color="none" class=" downloadIcon" id="save">
-            <ion-icon name="download-outline"  ></ion-icon>
           
-        </ion-fab-button>
-        </ion-fab>
-        <ion-fab class="reload" horizontal="center" >
-          <ion-fab-button color="none" class=" syncIcon" id="reload">
-            <ion-icon name="sync-outline"></ion-icon>
-          </ion-fab-button>
-        </ion-fab>  
         </ion-grid>
+        
       </ion-card-content>
     </ion-card>
     <script src="/script.js"></script>
