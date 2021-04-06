@@ -192,10 +192,11 @@
   }
   :root .downloadIcon {
     width: 90px;
+    bottom: 1rem;
   }
   :root .syncIcon {
     width: 120px;
-    bottom: 8rem;
+    bottom: 3rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
