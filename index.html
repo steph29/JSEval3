@@ -18,8 +18,21 @@
     <title>Eval 3</title>
   </head>
   <body>
-    <div class="alert" style="display:none" id="alert">Et c'est reparti!</div>
-      <div class="rules" id="rules">Le jeu comprend 2 joueurs sur un seul et même écran.<br/>
+<ion-content>
+    <div class="button container" >
+          <button href="#modal2" class="js-modal">
+            Règle du jeu
+          </button>
+        </div>
+
+   <div class="modal" id="modal2"  style="display: none;">
+      <div class="modal-wrapper js-modal-stop">
+        <section>
+          <form method="POST">
+            <div class="button-modal js-modal-close">
+          
+          
+            <div class="rules" id="rules">Le jeu comprend 2 joueurs sur un seul et même écran.<br/>
 Chaque joueur possède un score temporaire (ROUND) et un score global (GLOBAL).<br/>
 À chaque tour, le joueur a son ROUND initialisé à 0 et peut lancer un dé autant de fois qu'il le souhaite. Le
 résultat d’un lancer est ajouté au ROUND.<br/><br/>
@@ -28,40 +41,44 @@ Lors de son tour, le joueur peut décider à tout moment de:<br/>
 tour de l’autre joueur.<br/>
 - Lancer le dé. <strong>S’il obtient un 1</strong> , son score ROUND est perdu et c’est la fin de son tour.<br/>
 Le premier joueur qui atteint les 100 points sur global gagne le jeu</div>
-    <ion-card>
+<div class="container"><button class="close">X</button></div>
+        </div>
+          </form>
+        </section>
+      </div>
+   </div>
+
+    <div class="alert" style="display:none" id="alert">Et c'est reparti!</div>
+    <div class="winAlert" style="display:none" id="winAlert">Bravo <ion-icon name="trophy-outline"></ion-icon>! vous avez gagné !</div>
+     
+
+<ion-card>
       <ion-card-content>
         
         <ion-fab  vertical="top" horizontal="center" > 
                   <ion-fab-button color="none" class=" playIcon" id="newGame">
                     <ion-icon name="add"></ion-icon>
                   </ion-fab-button><h3>NEW GAME</h3>
-                </ion-fab>
-        
-           
         </ion-fab>
+
       <ion-fab vertical="center" horizontal="center" >
           <div id="dicee">
           </div>
         </ion-fab>
-       
+        
         <ion-fab  vertical="bottom" horizontal="center" > 
                   <ion-fab-button color="none" class=" downloadIcon" id="save"><h3>HOLD</h3>
                     <ion-icon name="download-outline"></ion-icon>
                   </ion-fab-button>
-                </ion-fab>  
+        </ion-fab>  
 
-
-        <ion-fab  vertical="bottom" horizontal="center" > 
+       <ion-fab  vertical="bottom" horizontal="center" > 
           <ion-fab-button color="none" class=" syncIcon" id="reload"><h3>ROLL DICEE</h3>
             <ion-icon name="sync-outline"></ion-icon>
           </ion-fab-button>
         </ion-fab>  
+
       <ion-card-content>
-        
-        
-
-
-
         <ion-grid >
           <ion-row>
             <ion-col size="6" class="player player1">
@@ -100,6 +117,8 @@ Le premier joueur qui atteint les 100 points sur global gagne le jeu</div>
         
       </ion-card-content>
     </ion-card>
+  </ion-content>
+   
     <script src="/script.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
 <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>

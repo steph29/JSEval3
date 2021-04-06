@@ -36,7 +36,70 @@ reload.addEventListener("click", () => {
   scoreGlobal = roundDicee();
 });
 
-// Functions
+// Functions Modal
+var modal = null;
+const focusableSelector = "button, a, input, textarea";
+let focusables = [];
+let previouslyFocusElement = null;
+
+const openModal = function (e) {
+  e.preventDefault();
+  modal = document.querySelector(e.target.getAttribute("href"));
+  focusables = Array.from(modal.querySelectorAll(focusableSelector));
+  modal.style.display = null;
+  previouslyFocusElement = document.querySelector(":focus");
+  modal.addEventListener("click", closeModal);
+  modal.querySelector(".js-modal-close").addEventListener("click", closeModal);
+  modal
+    .querySelector(".js-modal-stop")
+    .addEventListener("click", stopPropagation);
+};
+
+const closeModal = function (e) {
+  if (modal == null) return;
+  if (previouslyFocusElement !== null) previouslyFocusElement.focus();
+  e.preventDefault();
+  window.setTimeout(function () {
+    modal.style.display = "none";
+    modal = null;
+  }, 250);
+  modal.removeEventListener("click", closeModal);
+  modal
+    .querySelector(".js-modal-close")
+    .removeEventListener("click", closeModal);
+  modal
+    .querySelector(".js-modal-stop")
+    .removeEventListener("click", stopPropagation);
+};
+
+const stopPropagation = function (e) {
+  e.stopPropagation();
+};
+
+const focusInModal = function (e) {
+  e.preventDefault();
+  let index = focusables.findIndex((f) => f === modal.querySelector(":focus"));
+  if (e.shiftKey === true) {
+    index--;
+  } else {
+    index++;
+  }
+  if (index >= focusables.length) {
+    index = 0;
+  }
+  if (index < 0) {
+    index = focusables.length - 1;
+  }
+  focusables[index].focus();
+  console.log(index);
+};
+
+document.querySelectorAll(".js-modal").forEach((a) => {
+  a.addEventListener("click", openModal);
+});
+
+
+//Function alert
 function alert() {
   var alertDiv = document.getElementById("alert");
   alertDiv.style.display = "block";
@@ -47,22 +110,17 @@ function deleteAlert() {
   alertDiv.style.display = "none";
 }
 
-function win(player) {
-  var alertDiv = document.createElement("div");
-  alertDiv.setAttribute("id", "win");
-  var content = document.createTextNode(
-    `Bravo ${player}! Vous avez remporté le match ! `
-  );
-  alertDiv.appendChild(content);
-  var currentDiv = document.getElementById("rules");
-  document.body.insertBefore(alertDiv, currentDiv);
+function win() {
+  var winDiv = document.getElementById("winAlert");
+  winDiv.style.display = "block";
 }
 
 function deleteWin() {
-  var alertDiv = document.getElementById("win");
-  alertDiv.style.display = "none";
+  var winDiv = document.getElementById("winAlert");
+  winDiv.style.display = "none";
 }
 
+// function Game
 function newGame() {
   global1.innerText = 0;
   global2.innerText = 0;

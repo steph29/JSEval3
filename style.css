@@ -6,10 +6,51 @@
 }
 
 :root .alert,
-:root #win {
+:root #win,
+:root .winAlert {
   font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
+}
+
+:root .button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:root .button button {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(255, 0, 0, 0.6);
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 10px lightgray;
+          box-shadow: 2px 2px 10px lightgray;
+  color: #727272;
+}
+
+:root .close {
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgba(255, 0, 0, 0.6);
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 10px lightgray;
+          box-shadow: 2px 2px 10px lightgray;
+  color: #727272;
+}
+
+:root .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 2rem;
+}
+
+:root button {
+  margin: auto auto;
 }
 
 :root .rules {
@@ -20,7 +61,7 @@
 
 :root ion-card {
   margin: auto auto;
-  height: 400px;
+  height: 500px;
   max-width: 900px;
 }
 
@@ -51,12 +92,14 @@
 
 :root .downloadIcon {
   position: absolute;
-  bottom: 5rem;
+  bottom: 4rem;
+  right: -5rem;
 }
 
 :root .syncIcon {
   position: absolute;
-  bottom: 8rem;
+  bottom: 7rem;
+  right: -5.5rem;
 }
 
 :root #dicee {
@@ -135,5 +178,24 @@
 
 :root .player2 h2 {
   color: #b9b9b9;
+}
+
+@media screen and (max-width: 375px) {
+  :root .alert,
+  :root #win,
+  :root .winAlert {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  :root ion-button {
+    left: 25%;
+  }
+  :root .downloadIcon {
+    width: 90px;
+  }
+  :root .syncIcon {
+    width: 120px;
+    bottom: 8rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
