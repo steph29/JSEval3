@@ -9,10 +9,41 @@
     height: 100%;
   }
   .alert,
-  #win {
+  #win,
+  .winAlert {
     font-size: 3rem;
     text-align: center;
     margin-bottom: 2rem;
+  }
+
+  .button {
+    margin-left: auto;
+    margin-right: auto;
+    button {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: $LightRed;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px lightgray;
+      color: $darkGray;
+    }
+  }
+  .close {
+    margin-right: auto;
+    margin-left: auto;
+    background-color: $LightRed;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px lightgray;
+    color: $darkGray;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  button {
+    margin: auto auto;
   }
   .rules {
     font-size: 1rem;
@@ -21,7 +52,7 @@
   }
   ion-card {
     margin: auto auto;
-    height: 400px;
+    height: 500px;
     max-width: 900px;
   }
   h3 {
@@ -46,11 +77,13 @@
   }
   .downloadIcon {
     position: absolute;
-    bottom: 5rem;
+    bottom: 4rem;
+    right: -5rem;
   }
   .syncIcon {
     position: absolute;
-    bottom: 8rem;
+    bottom: 7rem;
+    right: -5.5rem;
   }
 
   #dicee {
@@ -115,6 +148,25 @@
   .player2 {
     h2 {
       color: $lightGray;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .alert,
+    #win,
+    .winAlert {
+      font-size: 2rem;
+
+      margin-bottom: 1rem;
+    }
+    ion-button {
+      left: 25%;
+    }
+    .downloadIcon {
+      width: 90px;
+    }
+    .syncIcon {
+      width: 120px;
+      bottom: 8rem;
     }
   }
 }
